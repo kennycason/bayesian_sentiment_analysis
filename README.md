@@ -8,29 +8,28 @@ This project explores a few optimizations to the typical Naive Bayesian methods 
 
 Depending on your requirements you can achieve >90% accuracy with Bayesian techniques. Results of >99% accuracy are possible in aggregate.
 
-The best results typically range from 89-94% accuracy while rating 50-70% of the data. As this is a stochastic method, results vary. All these results are generated from a proprietary tokenizer though I suspect the Lucene tokenizer will get close. 
+The best results typically range from 89-94% accuracy while rating 50-70% of the data. As this is a stochastic method, results vary. All results are generated from a proprietary tokenizer, , though I suspect the Lucene tokenizer will get close, or at least demonstrate the improvement over single Bayesian classifier.
 
 1. Instead of using a single Bayesian classifier, we will train a small cluster of Bayesian classifiers on random samples of the training data. 
-    - This is similar to the improvement `Random Forest` provides over `Decision Tree `algorithms.
+    - This is similar to the improvement `Random Forest` provides over `Decision Tree` algorithms.
     - For a lack of a better name this implementation is referred to as a `Stochastic Bayesian Classifier`
     - Choose your strategy for determining how the cluster of classifiers "vote" for the final sentiment. All-or-none, majority wins, average, etc.
 
 2. You don't have to rate 100% of the data.
-    - Depending on your business case, you may not have to rate 100% of your data.
+    - Depending on your business case, you may not have to rate 100% of your data. E.g. Rating 50% of the data is usually more than enough to get an idea of overall sentiment.
     - The rated data just needs to be representative of the over all data. 
-    - Adjust the confidence required for the classifier applies a sentiment label. 
-    - E.g. Rating 50% of the data is usually more than enough to get an idea of overall sentiment.
+    - Adjust the confidence required for the classifier to apply a sentiment label.
 
 3. N-Gram models can do pretty well.
     - While skipgrams have potential to offer more language coverage with less data, they are also very expensive to compute.
     - Bigrams seemed to hit the sweet spot for speed, accuracy, and memory.
     
 4. Prune your trained model.
-    - Removing observed n-grams/features that occur "too rarely" can help prevent over-fitting, as well as decrease the model's memory footprint (~4x in these tests)
+    - Removing n-grams/features that occur "too rarely" can help prevent over-fitting, as well as decrease the model's memory footprint (~4x in these tests)
     
-5. Tokenization of the text matters.
+5. Tokenization of the text matters!
     - This project contains two tokenizers, a naive white space tokenizer, and a more advanced Lucene standard analyzer. The Lucene standard analyzer does much better.
-    - At DataRank/Simply Measured, we use much more developed tokenizers that understand language, emoji, urls, etc. This allows the model to have more structured information to learn from and offers significant improvement.
+    - At DataRank/Simply Measured, we use much more developed tokenizers that understand language, emoji, urls, etc. This allows the model to have more structured information to learn from and offers **significant** improvement.
     
 6. In practice, more important than individual text sentiment accuracy is the accuracy in aggregate.
     - E.g. The algorithm achieves 90% accuracy for rating individual texts, however in aggregate it is 99.1% accurate. 
