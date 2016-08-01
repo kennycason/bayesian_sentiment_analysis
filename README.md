@@ -10,7 +10,7 @@ Depending on your requirements you can achieve >90% accuracy with Bayesian techn
 
 The best results typically range from 89-94% accuracy while rating 50-70% of the data. As this is a stochastic method, results vary. All results are generated from a proprietary tokenizer, , though I suspect the Lucene tokenizer will get close, or at least demonstrate the improvement over single Bayesian classifier.
 
-1. Instead of using a single Bayesian classifier, we will train a small cluster of Bayesian classifiers on random samples of the training data. 
+1. Instead of using a single Bayesian classifier, we will train a small cluster of Bayesian classifiers on random samples of the training data. (**This offered the most immediate improvement**) 
     - This is similar to the improvement `Random Forest` provides over `Decision Tree` algorithms.
     - For a lack of a better name this implementation is referred to as a `Stochastic Bayesian Classifier`
     - Choose your strategy for determining how the cluster of classifiers "vote" for the final sentiment. All-or-none, majority wins, average, etc.
