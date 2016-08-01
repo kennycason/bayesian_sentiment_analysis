@@ -55,11 +55,11 @@ Often times the gains of these algorithms (a few percents of accuracy), may not 
 
 Results generated from BayesianClassifierImdbDemo.kt
 
- Confidence Threshold: 0.25
+Confidence Threshold: 0.25
  
 | Model | Train+ | Train- | Test+ | Test- | Net Accuracy | % of data rated | Misc Parameters |
 |-------|--------|-------|--------|-------|-----------------|------|------|------|
-| stochastic bigram | 98.7% | 97.1% | 94.8% | 92.8% | 93.8% | 93.8% | classifier count: 10, sampling rate: 0.2 |
+| stochastic bigram | 98.7% | 97.1% | 94.8% | 92.8% | 93.8% | 61.0% | classifier count: 10, sampling rate: 0.2 |
  
 Confidence Threshold: 0.2
  
