@@ -57,18 +57,18 @@ Results generated from BayesianClassifierImdbDemo.kt
 
  Confidence Threshold: 0.25
  
- | Model | Train+ | Train- | Test+ | Test- | Net Accuracy | % of data rated | Misc Parameters |
- |-------|--------|-------|--------|-------|-----------------|------|------|------|
- | stochastic bigram | 98.7% | 97.1% | 94.8% | 92.8% | 93.8% | 93.8% | classifier count: 10, sampling rate: 0.2 |
+| Model | Train+ | Train- | Test+ | Test- | Net Accuracy | % of data rated | Misc Parameters |
+|-------|--------|-------|--------|-------|-----------------|------|------|------|
+| stochastic bigram | 98.7% | 97.1% | 94.8% | 92.8% | 93.8% | 93.8% | classifier count: 10, sampling rate: 0.2 |
  
 Confidence Threshold: 0.2
  
- | Model | Train+ | Train- | Test+ | Test- | Net Accuracy | % of data rated | Misc Parameters |
- |-------|--------|-------|--------|-------|-----------------|------|------|------|
- | stochastic bigram | 99.5% | 97.7% | 94.8% | 89.1% | 91.95% | 54.4% | classifier count: 10, sampling rate: 0.2 |
- | stochastic skipgram(2,2) | 98.5% | 97.3% | 89.1% | 87.4% | 88.3% | 37% | default |
- | single bigram | 99.98% | 100.0% | 70.9% | 77.2% | 74.0% | 73% | default |
- | single skipgram(2,2) | 100.0% | 100.0% | 69.3% | 72.0% | 70.7% | 70.5% | default |
+| Model | Train+ | Train- | Test+ | Test- | Net Accuracy | % of data rated | Misc Parameters |
+|-------|--------|-------|--------|-------|-----------------|------|------|------|
+| stochastic bigram | 99.5% | 97.7% | 94.8% | 89.1% | 91.95% | 54.4% | classifier count: 10, sampling rate: 0.2 |
+| stochastic skipgram(2,2) | 98.5% | 97.3% | 89.1% | 87.4% | 88.3% | 37% | default |
+| single bigram | 99.98% | 100.0% | 70.9% | 77.2% | 74.0% | 73% | default |
+| single skipgram(2,2) | 100.0% | 100.0% | 69.3% | 72.0% | 70.7% | 70.5% | default |
   
 Confidence Threshold: 0.05
 
