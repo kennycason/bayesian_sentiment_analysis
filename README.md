@@ -1,4 +1,4 @@
-# Sentiment Analysis - Bayesian Methods
+# Sentiment Analysis - Improving Bayesian Methods
 
 ## About 
 
