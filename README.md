@@ -29,7 +29,7 @@ The best results typically range from 89-94% accuracy while rating 50-70% of the
     
 5. Tokenization of the text matters!
     - This project contains two tokenizers, a naive white space tokenizer, and a more advanced Lucene standard analyzer. The Lucene standard analyzer does much better.
-    - At DataRank/Simply Measured, we use much more developed tokenizers that understand language, emoji, urls, etc. This allows the model to have more structured information to learn from and offers **significant** improvement.
+    - At DataRank/Simply Measured, we use much more developed tokenizers that better handle language, emoji, urls, etc. This allows the model to have more structured information to learn from and offers **significant** improvement.
     
 6. In practice, more important than individual text sentiment accuracy is the accuracy in aggregate.
     - E.g. The algorithm achieves 90% accuracy for rating individual texts, however in aggregate it is 99.1% accurate. 
