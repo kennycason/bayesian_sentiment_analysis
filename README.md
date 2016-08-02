@@ -8,11 +8,11 @@ This project explores a few optimizations to the typical Naive Bayesian methods 
 
 Depending on your requirements you can achieve >90% accuracy with Bayesian techniques. Results of >99% accuracy are possible in aggregate.
 
-The best results typically range from 89-94% accuracy while rating 50-70% of the data. As this is a stochastic method, results vary. All results are generated from a proprietary tokenizer, , though I suspect the Lucene tokenizer will get close, or at least demonstrate the improvement over single Bayesian classifier.
+The best results typically range from 89-94% accuracy while rating 50-70% of the data. As this is a stochastic method, results vary. All results are generated from a proprietary tokenizer, though I suspect the Lucene tokenizer will get close, or at least demonstrate the improvement over single Bayesian classifier.
 
-1. Instead of using a single Bayesian classifier, we will train a small cluster of Bayesian classifiers on random samples of the training data. (**This offered the most immediate improvement**) 
+1. Instead of using a single Bayesian classifier, we will train a small cluster of Bayesian classifiers on random samples of the training data ([Bagging](https://en.wikipedia.org/wiki/Bootstrap_aggregating)). (**This offered the most immediate improvement**) 
     - This is similar to the improvement `Random Forest` provides over `Decision Tree` algorithms.
-    - For a lack of a better name this implementation is referred to as a `Stochastic Bayesian Classifier`
+    - The implementing class is called `Stochastic Bayesian Classifier`
     - Choose your strategy for determining how the cluster of classifiers "vote" for the final sentiment. All-or-none, majority wins, average, etc.
 
 2. You don't have to rate 100% of the data.
@@ -51,7 +51,7 @@ Often times the gains of these algorithms (a few percents of accuracy), may not 
 
 * (Scroll to the bottom for instructions on downloading the IMDB movie review dataset.)
 
-* `single` model = single Bayesian classifier. `stochastic` model = cluster of random sampling Bayesian classifiers. 
+* `single` model = single Bayesian classifier. `stochastic` model = cluster of random sampling Bayesian classifiers. (bagging)
 
 Results generated from BayesianClassifierImdbDemo.kt
 
