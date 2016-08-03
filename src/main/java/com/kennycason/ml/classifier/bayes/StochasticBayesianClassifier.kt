@@ -8,6 +8,7 @@ import com.kennycason.nlp.util.RandomSampler
  *
  * Similar to what Random Forest is to Decision Tree, create a set of Bayesian Classifiers where
  * each classifier is trained on a random subset of the corpus.
+ * This technique is known as "bagging" or "bootstrap aggregating". https://en.wikipedia.org/wiki/Bootstrap_aggregating
  */
 class StochasticBayesianClassifier(override val exclusions: MutableSet<String> = mutableSetOf(),
                                    override val interestingGramsCount: Int = 15,
