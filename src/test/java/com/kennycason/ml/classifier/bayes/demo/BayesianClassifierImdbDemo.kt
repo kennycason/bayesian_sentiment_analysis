@@ -7,15 +7,13 @@ import com.kennycason.ml.classifier.bayes.model.StreamingModelPersister
 import com.kennycason.ml.classifier.bayes.performance.ModelPruner
 import com.kennycason.nlp.data.imdb.ImdbDataCorpus
 import com.kennycason.nlp.data.imdb.ImdbLoader
-import com.kennycason.nlp.gram.Gram
-import com.kennycason.nlp.gram.GramTokenizer
-import com.kennycason.nlp.gram.NGramTokenizer
-import com.kennycason.nlp.gram.SkipGramTokenizer
+import com.kennycason.nlp.gram.*
 import com.kennycason.nlp.token.StringTokenStream
 import com.kennycason.nlp.token.tokenizer.EnglishTokenizer
 import com.kennycason.nlp.util.RandomSampler
 import com.kennycason.nlp.util.ResourceLoader
 import org.eclipse.collections.api.RichIterable
+import org.eclipse.collections.impl.factory.Lists
 import org.eclipse.collections.impl.list.mutable.ListAdapter
 import org.junit.Test
 import org.slf4j.LoggerFactory
@@ -79,6 +77,28 @@ class BayesianClassifierImdbDemo(val imdbInputDirectory: String) {
     fun prune() {
         val classifier = StochasticBayesianClassifier(classifierCount = 10, samplingPercent = 0.2f)
         val ngramTokenizer = NGramTokenizer<String>(2)
+        val modelPruner = ModelPruner()
+
+        val start = System.currentTimeMillis()
+        classifier.trainPositive(buildGrams(imdbDataCorpus.train.positive, ngramTokenizer))
+        classifier.trainNegative(buildGrams(imdbDataCorpus.train.negative, ngramTokenizer))
+        classifier.finalizeTraining()
+        logger.info("${System.currentTimeMillis() - start} ms to train")
+
+        logger.info("Test Data Results")
+        resultEvaluator.evaluate(classifier, buildGrams(imdbDataCorpus.test.positive, ngramTokenizer), 1.0f, errorDelta)
+        resultEvaluator.evaluate(classifier, buildGrams(imdbDataCorpus.test.negative, ngramTokenizer), 0.0f, errorDelta)
+
+        logger.info("Pruned Test Data Results")
+        modelPruner.prune(classifier)
+        resultEvaluator.evaluate(classifier, buildGrams(imdbDataCorpus.test.positive, ngramTokenizer), 1.0f, errorDelta)
+        resultEvaluator.evaluate(classifier, buildGrams(imdbDataCorpus.test.negative, ngramTokenizer), 0.0f, errorDelta)
+        StreamingModelPersister().persist(classifier, File("/tmp/pruned_model.json"))
+    }
+
+    fun compositeBiGramAndTriGram() {
+        val classifier = StochasticBayesianClassifier(classifierCount = 10, samplingPercent = 0.2f)
+        val ngramTokenizer = CompositeGramTokenizer<String>(Lists.mutable.of(NGramTokenizer<String>(2), NGramTokenizer<String>(3)))
         val modelPruner = ModelPruner()
 
         val start = System.currentTimeMillis()
