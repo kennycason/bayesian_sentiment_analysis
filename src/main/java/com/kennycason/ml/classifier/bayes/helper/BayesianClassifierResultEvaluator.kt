@@ -24,7 +24,7 @@ class BayesianClassifierResultEvaluator {
         }
         if (print) {
             logger.info("correct: ${result.correct}, wrong: ${result.wrong}, undecided: ${samples.size - result.totalRated()}")
-            logger.info("${result.correct}/${samples.size} = ${result.percentRated()}% - ${result.correct / samples.size.toFloat() * 100.0f}% accuracy, ${result.percentCorrect()}% accuracy of rated data.")
+            logger.info("${result.correct}/${samples.size} = ${result.percentRated()}% of data rated - ${result.percentCorrect()}% accuracy of rated data.")
         }
         return result
     }
