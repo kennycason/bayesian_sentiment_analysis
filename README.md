@@ -58,13 +58,13 @@ Results generated from BayesianClassifierImdbDemo.kt
 Confidence Threshold: 0.25
  
 | Model | Train+ | Train- | Test+ | Test- | Net Accuracy | % of data rated | Misc Parameters |
-|-------|--------|-------|--------|-------|-----------------|------|------|------|
+|-------|--------|--------|-------|-------|--------------|-----------------|-----------------|
 | stochastic bigram | 98.7% | 97.1% | 94.8% | 92.8% | 93.8% | 61.0% | classifier count: 10, sampling rate: 0.2 |
  
 Confidence Threshold: 0.2
  
 | Model | Train+ | Train- | Test+ | Test- | Net Accuracy | % of data rated | Misc Parameters |
-|-------|--------|-------|--------|-------|-----------------|------|------|------|
+|-------|--------|--------|-------|-------|--------------|-----------------|-----------------|
 | stochastic bigram | 99.5% | 97.7% | 94.8% | 89.1% | 91.95% | 54.4% | classifier count: 10, sampling rate: 0.2 |
 | stochastic skipgram(2,2) | 98.5% | 97.3% | 89.1% | 87.4% | 88.3% | 37% | default |
 | single bigram | 99.98% | 100.0% | 70.9% | 77.2% | 74.0% | 73% | default |
@@ -73,7 +73,7 @@ Confidence Threshold: 0.2
 Confidence Threshold: 0.05
 
 | Model | Train+ | Train- | Test+ | Test- | Net Accuracy | % of data rated | Misc Parameters |
-|-------|--------|-------|--------|-------|-----------------|-------|------|-------|
+|-------|--------|--------|-------|-------|--------------|-----------------|-----------------|
 | stochastic bigram | 99.6% | 99.5% | 92.8% | 96.5% | 94.6% | 16% | classifier count: 10, sampling rate: 0.2 |
 | stochastic skipgram(2,2) | 99.8% | 98.9% | 93.8% | 92.05992% | 92.8% | 15% | default |
 | single bigram | 100.0% | 100.0% | 77.3% | 77.3% | 77% | 72% | default |
@@ -85,7 +85,7 @@ Confidence Threshold: 0.05
 Results Generated from StochasticBayesianClassifierTwitterSampleDemo
 
 | Model | Train+ | Train- | Test+ | Test- | Net Accuracy | % of data rated | Misc Parameters |
-|-------|--------|-------|--------|-------|-----------------|------|------|------|
+|-------|--------|--------|-------|-------|--------------|-----------------|-----------------|
 | stochastic bigram (kaggle data) | 100.0% | 99.9% | N/A | N/A | 99.95% | 95.7% | classifier count: 15, sampling rate: 0.5 |
 | stochastic bigram (hand rated) | 99.8% | 99.9% | N/A | N/A | 99.85% | 80.5% | classifier count: 15, sampling rate: 0.5 |
 | stochastic bigram (hand rated, 50% train, 50% test) | 99.8% | 99.9% | 86.3 | 95.9 | 91.1% | 64.2%% | classifier count: 15, sampling rate: 0.5 |
@@ -96,7 +96,7 @@ Results Generated from StochasticBayesianClassifierTwitterSampleDemo
 Refer to [machine-learning/sentiment_analysis.xlsx](sentiment_analysis.xlsx?raw=true) file for more details. 
 
 | Simulations | Sample Size | Percent Positive | Average Error | Standard Deviation | Data Set |
-|-------|--------|-------|--------|-------|----|
+|-------------|-------------|------------------|---------------|--------------------|----------|
 | 100 | 1000 | 50% | 0.031 | 0.019 | Imdb |
 | 100 | 2000 | 50% | 0.010 | 0.013 | Imdb |
 | 100 | 2000 | 50% | 0.009 | 0.010 | Twitter |
@@ -119,7 +119,7 @@ The below graph shows given a variable confidence threshold, [0.01, 0.50], the r
 #### Model Pruning
 
 | Min Frequency | Prune Threshold: abs(0.5 - p(pos)) < threshold | Avg size Before | Avg size Before | Accuracy Before |  Rated Before | Accuracy After | Rated After | 
-|-------|--------|-------|--------|-------|------|-----|------|------|
+|-------|--------|-------|--------|-------|------|-----|------|
 | 2 | 0.05 | 409534 | 130448 | 91.3% | 40% | 94.7% | 40% |
 | 2 | 0.05 | 413216 | 112896 | 91.9% | 40% | 95.2% | 43% |
 
